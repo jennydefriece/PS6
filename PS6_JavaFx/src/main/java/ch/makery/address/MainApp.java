@@ -45,18 +45,11 @@ public class MainApp extends Application {
      * Constructor
      */
     public MainApp() {
-    	RefreshPersonTable();
-    }
     
-    
-    public void  RefreshPersonTable()
-    {
-    	personData.clear();
     	
-    	//TODO:	When PersonDAL.getPersons() is complete, fix the code 
     	
-    	ArrayList<PersonDomainModel> people = null;
-    	// people = PersonDAL.getPersons();
+    	ArrayList<PersonDomainModel> people = PersonDAL.getPersons();
+  
     	
     	for (PersonDomainModel p: people)
     	{
