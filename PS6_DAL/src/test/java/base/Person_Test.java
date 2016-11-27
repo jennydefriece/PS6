@@ -49,8 +49,41 @@ public class Person_Test {
 		person1.setStreet("702 Stone Gate Blvd");
 		person1.setPostalCode(21921);
 		
+		
+		PersonDAL.addPerson(person1);
 	}
 	
-	
+	public static void tearDownAfterClass() throws Exception {
+		PersonDAL.deletePerson(person1.getPersonID());
+		
+		
+		@Test
+		public static void getAllPersonsTest() {
+			ArrayList<PersonDomainModel> test;
+			test.add(person1);
+			assertNotNull( test== PersonDAL.getAllPersons());
+		}
+		
+		@Test
+		public static void getPersonTest(){
+		assert(PersonDAL.getPerson(person1UUID) == person1);
+		}
+		
+		@Test
+		public void updatePerson() {
+			person1.setFirstName("Jenny");
+			person1.setPostal(430201);
+			PersonDAL.updatePerson(person1);
+			assertTrue(person1.setFirstName() == "Jenny");
+			assertTrue(person1.setPostal() == "430201");
+		}
+		@Test
+		public static void deletePersonTest(){
+		PersonDAL.deletePerson(person1UUID);
+		assert(PersonDAL.getPerson(person1UUID)==null);
+		}
+
+	}
+		
 
 }
