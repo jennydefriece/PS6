@@ -82,7 +82,8 @@ public class Person_Test {
 		PersonDAL.deletePerson(person1UUID);
 		assert(PersonDAL.getPerson(person1UUID)==null);
 		}
-
+//
+		
 	}
 		
 
